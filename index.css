@@ -1,0 +1,45 @@
+body{
+    background:lightgray;
+    width:79rem;
+    margin:20px;
+}
+header{
+    text-align:center;
+    color:black;
+}
+#main{
+    margin-top:5rem;
+    width:50rem;
+    
+    text-align:center;
+    margin:auto;
+    height:auto;
+}
+#search{
+    width:30rem;
+    padding:13px;
+    font-size:18px;
+    border:5px solid lightblue;
+    margin-bottom:0;
+}
+button{
+    border:5px solid lightblue;
+    height:55px;
+    width:7rem;
+    background:lightblue;
+    color:white;
+    font-size:18px;
+    margin-left:25px;
+    margin-bottom:0;
+
+}
+p{
+    text-align:left;
+    margin-left:75px;
+    margin-top:5px;
+}
+#content{
+    background:linear-gradient(255,144,123);
+    height:100rem;
+    width:79rem;
+}
