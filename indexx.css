@@ -39,7 +39,10 @@ p{
     margin-top:5px;
 }
 #content{
-    background:linear-gradient(255,144,123);
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
     height:100rem;
     width:79rem;
+    text-align:center;
+    
 }
