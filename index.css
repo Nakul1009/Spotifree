@@ -5,6 +5,7 @@ h1{
 }
 #box{
     border-width: 5px;
+    text-align: center;
     background-color: rgb(86, 196, 230);
     padding-top: 10px;
     padding-bottom: 10px;
