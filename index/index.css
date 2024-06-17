@@ -1,5 +1,10 @@
 h1{
     color: black;
+    font-size: 50px;
+    text-align: center;
+}
+h2{
+    color: black;
     font-size: 39px;
     text-align: center;
 }

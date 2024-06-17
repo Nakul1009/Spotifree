@@ -10,24 +10,22 @@
 <body style="background-color: beige;">
     <script>
         var a = new String();
+        var python_process = new String();
     </script>
     <div>
         <h1>Spotifree</h1>
     </div>
     <hr style="color: dimgrey;">
-    <h1>Free Online Spotify Song Downloader!!!</h1>
+    <h2>Free Online Spotify Song Downloader!!!</h2>
     <br>
     <form id="input">
             <input style="width:300px" id="text" type="text" placeholder="paste the link here" onchange="a = this.value;">
-            <button id="text" onclick="myFunction()">search</button>
+            <button id="text" onclick="myFunction(a)">search</button>
     </form>
     <p style="text-align: center;">By using our services you accept our <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of services</a> and <a href="https://www.wikipedia.org/">privacy policy</a></p>
     <div id="box">
         Nig ballz
     </div>
-    <script>
-        function myFunction(){
-            alert(a);
-        }
+    <script src="index.js">
     </script>
 </body>
