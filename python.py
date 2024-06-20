@@ -39,7 +39,7 @@ songlink = tempo['link']
 yt = YouTube(songlink)
 
 
-yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22).download()
+yt.streams.filter(only_audio="True").first().download()
 
 
 
