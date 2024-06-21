@@ -44,8 +44,8 @@ yt = YouTube(songlink)
 
 checker = yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22)
 if checker == None:
-    yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(18).download(output_path=download_path)
+    yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(18).download(output_path=download_path,filename='Best')
 elif yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22) != None :
-    yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22).download(output_path=download_path)
+    yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22).download(output_path=download_path,filename='Best')
 else:
     print("poda punda")
