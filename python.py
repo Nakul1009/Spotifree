@@ -8,10 +8,11 @@ from pytube import YouTube
 inp = input("enter the link you want to convert into mp4: ")
 pri = requests.get(inp)
 
+
+
 #getting the song name from the html get page
 song = BeautifulSoup(pri.content, "html.parser")
 songfind = song.find("title")
-
 #removing the title since it has 7 characters
 songfind = str(songfind)[7:]
 songfind = songfind.split("<")
@@ -22,42 +23,24 @@ temp = songfind.split()
 temp_store = temp.index("|")
 temp = temp[0:temp_store]
 songname = " ".join(temp)
-
 print("Song Name", songname) 
+
 
 #searching for the song in youtube
 search = VideosSearch(songname, limit = 1)
 a = search.result()
+print(a)
 tempo = a['result'][0]
-
 songlink = tempo['link']
-
-
-
 
 #downloading the video
 yt = YouTube(songlink)
 
 
-yt.streams.filter(only_audio="True").first().download()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#https://open.spotify.com/track/1JVfJe7LQSePY6EyF1fBUX?si=0fd15bc439de4dde
+checker = yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22)
+if checker == None:
+    yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(18).download()
+elif yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22) != None :
+    yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22).download()
+else:
+    print("poda punda")
