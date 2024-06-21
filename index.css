@@ -22,15 +22,24 @@ header{
     border:5px solid lightblue;
     margin-bottom:0;
 }
+#search:hover{
+    border:5px solid rgb(90, 206, 245);
+}
 button{
-    border:5px solid lightblue;
+    border:5px solid rgb(173, 216, 230);
     height:55px;
     width:7rem;
-    background:lightblue;
+    background:rgb(173, 216, 230);
     color:white;
     font-size:18px;
     margin-left:25px;
     margin-bottom:0;
+
+}
+button:hover{
+    background:rgb(90, 206, 245);
+    border:5px solid rgb(90, 206, 245);
+    cursor:pointer;
 
 }
 p{
