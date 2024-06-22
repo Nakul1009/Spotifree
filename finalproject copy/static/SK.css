@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.header{
+    width: 100%;
+    background-color: rgb(63, 61, 61);
+}
+
+nav{
+    color:rgb(174, 215, 113);
+    padding: 20px;
+    display : flex;
+    justify-content: space-between;
+}
+
+#head1,#head{
+    padding-top: 10px;
+}
+
+#download{  
+    padding-left: 70%;
+}
+
+hr{
+    border: 0.05px solid white;
+}
+
+.middle{
+    flex:1;
+    color: aliceblue;
+    text-align: center;
+}
+
+#mid{
+   font-size: 50px;
+   font-weight:900;
+   margin-bottom:10px; 
+}
+
+#mid2{
+    color:rgb(174, 215, 113);
+    font-weight: bold;
+}
+
+label{
+    color:rgb(174, 215, 113);
+}
+
+.spotifyLink{
+    width: 100%; 
+    max-width: 500px; 
+    padding: 8px;  
+    font-size: 14px; 
+    border: 1px solid #ccc;
+    color:rgb(174, 215, 113);
+}
+
+#sub,#res{
+    padding: 12px 24px; 
+    font-size: 16px;
+}
+
+.images{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px; 
+    max-width: 800px;
+    padding-left: 330px; 
+}
+
+.instruction{
+    color: rgb(180, 175, 175);
+}
+
+#ins1{
+    font-weight: 700;
+    color: rgb(211, 204, 204);
+    padding-left:430px;
+}
+
+#ins2{
+    padding-top: 30px;
+    padding-left: 450px ;
+}
+
+#last{
+    padding-left :350px;
+}
+
