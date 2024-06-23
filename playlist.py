@@ -52,8 +52,6 @@ def song_download(yt):
         print("Mp4 file is downloaded")
 
 
-
-
 def video_search(songname):
     search = VideosSearch(songname, limit=1)
     a = search.result()
@@ -66,41 +64,58 @@ def video_search(songname):
 downloadpath = os.path.join(os.environ["USERPROFILE"], "Downloads")
 
 
-albinp = input("enter the albun link")
-albpri = requests.get(albinp)
-albinp = albinp.split("/")
+playinp = input("enter the playlist link")
+playpri = requests.get(playinp)
+playinp = playinp.split("/")
 
+if "playlist" in playinp:
 
-song = BeautifulSoup(albpri.content, "html.parser")
-album_name = song.find("title")
-album_name = str(album_name)[7:]
-album_name = album_name.split("<")
-album_name = "".join(album_name)
+    playsong = BeautifulSoup(playpri.content, "html.parser")
+
+    # Playlist name finder
+    playlist_name = playsong.find("title")
+    playlist_name = str(playlist_name)[7:]
+    playlist_name = playlist_name.split("<")
+    playlist_name = "".join(playlist_name)
 
     # to remove the spotify name from the song name
-temp_play = album_name.split()
-temp_store_play = temp_play.index("|")
-temp_play = temp_play[0:temp_store_play]
-album_name = " ".join(temp_play)
+    temp_play = playlist_name.split()
+    temp_store_play = temp_play.index("|")
+    temp_play = temp_play[0:temp_store_play]
+    playlist_name = " ".join(temp_play)
 
-print(album_name)
-meta=song.find_all("meta",attrs={"name":"music:song"})
-newpath = downloadpath + "\\" + album_name
-flag = False
-if not os.path.exists(newpath):
-    os.makedirs(newpath)
-    flag = True
-    newpath = newpath + "\\"
+    print(playlist_name)
 
-for i in meta:
-    temp=str(i)[15:]
-    temp1=temp.split("\"")
-    pri=requests.get(temp1[0])
+    metatag = playsong.find_all("meta", attrs={"name": "music:song"})
+    playlist = []
+    for tag in metatag:
+        temp = str(tag)[15:]
+        temp1 = temp.split('"')
+        playlist.append(temp1[0])
 
-    songname=find_song_name(pri)
-    print(songname)
-    songlink=video_search(songname)
-    yt=YouTube(songlink)
-    if flag:
-        song_download(yt)
+    newpath = downloadpath + "\\" + playlist_name
+    flag = False
+    if not os.path.exists(newpath):
+        os.makedirs(newpath)
+        flag = True
+        newpath = newpath + "\\"
 
+    for i in playlist:
+        pri = requests.get(i)
+
+        # getting the song name from the html get page
+        songname = find_song_name(pri)
+        print(songname)
+
+        # searching for the song in youtube
+        songlink = video_search(songname)
+        # downloading the video
+        yt = YouTube(songlink)
+
+        # donwloading the songs
+        if flag == True:
+            # audio only file is saved
+            song_download(yt)
+
+elif "album" in playinp:
+    pass
