@@ -4,15 +4,9 @@ from youtubesearchpython import *
 from pytube import YouTube
 import os
 
-
-
-
-
 #getting input from the user for the song name
 inp = input("enter the link you want to convert into mp4: ")
 pri = requests.get(inp)
-
-
 
 #getting the song name from the html get page
 song = BeautifulSoup(pri.content, "html.parser")
