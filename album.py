@@ -52,7 +52,6 @@ def song_download(yt):
         print("Mp4 file is downloaded")
 
 
-newpath = None
 
 
 def video_search(songname):
@@ -71,7 +70,37 @@ albinp = input("enter the albun link")
 albpri = requests.get(albinp)
 albinp = albinp.split("/")
 
-print(albpri.content)
-
 
 song = BeautifulSoup(albpri.content, "html.parser")
+album_name = song.find("title")
+album_name = str(album_name)[7:]
+album_name = album_name.split("<")
+album_name = "".join(album_name)
+
+    # to remove the spotify name from the song name
+temp_play = album_name.split()
+temp_store_play = temp_play.index("|")
+temp_play = temp_play[0:temp_store_play]
+album_name = " ".join(temp_play)
+
+print(album_name)
+meta=song.find_all("meta",attrs={"name":"music:song"})
+newpath = downloadpath + "\\" + album_name
+flag = False
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
+    flag = True
+    newpath = newpath + "\\"
+
+for i in meta:
+    temp=str(i)[15:]
+    temp1=temp.split("\"")
+    pri=requests.get(temp1[0])
+
+    songname=find_song_name(pri)
+    print(songname)
+    songlink=video_search(songname)
+    yt=YouTube(songlink)
+    if flag:
+        song_download(yt)
+
