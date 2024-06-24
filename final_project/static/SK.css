@@ -56,17 +56,22 @@ label{
 }
 
 .spotifyLink{
-    width: 100%; 
+    width: 
+    100%; 
     max-width: 500px; 
     padding: 8px;  
     font-size: 14px; 
     border: 1px solid #ccc;
-    color:rgb(174, 215, 113);
+    color:black;
 }
 
 #sub,#res{
     padding: 12px 24px; 
     font-size: 16px;
+}
+
+#sub:hover,#res:hover{
+    background-color: rgb(174, 215, 113);
 }
 
 .images{
@@ -79,12 +84,12 @@ label{
 }
 
 .instruction{
-    color: rgb(180, 175, 175);
+    color: aliceblue;
 }
 
 #ins1{
     font-weight: 700;
-    color: rgb(211, 204, 204);
+    color: rgb(174, 215, 113);
     padding-left:430px;
 }
 

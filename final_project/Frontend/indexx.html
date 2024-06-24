@@ -27,14 +27,11 @@
     <div class="middle">
         <h3 id="mid">Spotify music Downloader</h3>
         <p id="mid2">Download Tracks, Albums and playlist from Spotify instantly</p><br><br>
-        <form action="/submit" method="POST">
+        <form id="downloadForm" action="/submit" method="POST">
             <label for="spotifyLink">Paste Spotify Link:</label><br><br>
             <input type="text" class="spotifyLink" id="spotifyLink" name="spotifyLink" placeholder="https://open.spotify.com/track/...">
             <br><br>
             
-            <input type="checkbox" id="agreeCheckbox" name="agreeCheckbox">
-            <label for="agreeCheckbox">I agree to the terms and conditions</label><br><br>
-    
             <input id="sub" type="submit" value="Submit">
             <input id="res" type="reset" value="Reset">
         </form>
@@ -62,7 +59,16 @@
         <img src="{{ url_for('static', filename='img 4.jpg') }}" width="800" height="400" alt="Image 4">
     </div>
 
-    <img id="last" src="music-image1.jpg" width="800" height="400">
+    
+    <script>
+        
+        document.getElementById('downloadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            alert('Download'); 
+            this.submit(); 
+        });
+    </script>
+
     
 </body>
 </html>

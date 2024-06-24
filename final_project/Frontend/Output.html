@@ -10,7 +10,19 @@
     {% if download_link %}
         <p>Your download link: <a href="{{ download_link }}" download>{{ download_link }}</a></p>
     {% endif %}
-    <h3>Sond name : {{name}}</h3>
+
+    {% if song_name %}
+        <h3>Song name : {{song_name}}</h3>
+    {% endif %}
+
+    {% if album_name %}
+        <h3>album name : {{album_name}}</h3>
+    {% endif %}
+
+    {% if playlist_name %}
+        <h3>Playlist name : {{playlist_name}}</h3>
+    {% endif %}
+
     <a href="/">Go Back</a>
 </body>
 </html>
