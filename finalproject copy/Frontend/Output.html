@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output</title>
+</head>
+<body>
+    <h1> {{message}} </h1> 
+    {% if download_link %}
+        <p>Your download link: <a href="{{ download_link }}" download>{{ download_link }}</a></p>
+    {% endif %}
+    <h3>Sond name : {{name}}</h3>
+    <a href="/">Go Back</a>
+</body>
+</html>

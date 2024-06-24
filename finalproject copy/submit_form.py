@@ -34,7 +34,7 @@ def submit_form():
     temp_store = temp.index("|")
     temp = temp[0:temp_store]
     songname = " ".join(temp)
-    print("Song Name", songname) 
+    name =  songname 
 
 
     #searching for the song in youtube
@@ -58,6 +58,8 @@ def submit_form():
         base, ext = os.path.splitext(out_file) 
         new_file = base + '.mp3'
         os.rename(out_file, new_file) 
+        message = "mp3 file downloaded"
+        download_link = new_file
 
     #if mp3 does not exist mp4 is downloaded
     except:
@@ -65,15 +67,18 @@ def submit_form():
         checker = yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22)
         if checker == None:
             yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(18).download(output_path=downloadpath)
+            message = "mp4 file downloaded"
         elif yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22) != None :
             yt.streams.filter(progressive="True", file_extension="mp4").get_by_itag(22).download(output_path=downloadpath)
+            message = "mp4 file downloaded"
         else:
-            print("Sorry No File Exists")
-        return ("Not done")
+            message = "NO file exist"
+        download_link = None
+        return render_template('Output.html', message=message, download_link=download_link,name =  songname)
 
         print("Mp4 file is downloaded")
 
-    return 'done'
+    return render_template('Output.html', message=message, download_link=download_link,name =  songname)
 
 if __name__ == '__main__':
     app.run(debug=True)
