@@ -14,34 +14,38 @@ def index():
 
 @app.route('/submit',methods=['POST'])
 def submit_form():
-    spotify_link = request.form.get('spotifyLink')
-    #getting input from the user for the song name
-    inp = spotify_link
-    pri = requests.get(inp)
+    try:
+        spotify_link = request.form.get('spotifyLink')
+        #getting input from the user for the song name
+        inp = spotify_link
+        pri = requests.get(inp)
 
 
 
-    #getting the song name from the html get page
-    song = BeautifulSoup(pri.content, "html.parser")
-    songfind = song.find("title")
-    #removing the title since it has 7 characters
-    songfind = str(songfind)[7:]
-    songfind = songfind.split("<")
-    songfind = "".join(songfind)
+        #getting the song name from the html get page
+        song = BeautifulSoup(pri.content, "html.parser")
+        songfind = song.find("title")
+        #removing the title since it has 7 characters
+        songfind = str(songfind)[7:]
+        songfind = songfind.split("<")
+        songfind = "".join(songfind)
 
     #to remove the spotify name from the song name
     temp = songfind.split()
     temp_store = temp.index("|")
     temp = temp[0:temp_store]
     songname = " ".join(temp)
-    name =  songname 
+    print("Song Name", songname) 
 
 
-    #searching for the song in youtube
-    search = VideosSearch(songname, limit = 1)
-    a = search.result()
-    tempo = a['result'][0]
-    songlink = tempo['link']
+        #searching for the song in youtube
+        search = VideosSearch(songname, limit = 1)
+        a = search.result()
+        tempo = a['result'][0]
+        songlink = tempo['link']
+
+    except:
+        return "The link you have entered is not a valid Spotify link. Please try with another link....."
 
     #downloading the video
     yt = YouTube(songlink)
