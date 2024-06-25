@@ -12,13 +12,13 @@ body {
 
 .header{
     width: 100%;
-    background-color: rgb(63, 61, 61);
+    background-color: black;
 }
 
 nav{
     color:rgb(174, 215, 113);
     padding: 20px;
-    display : flex;
+    display : inline-flex;
     justify-content: space-between;
 }
 
@@ -26,8 +26,8 @@ nav{
     padding-top: 10px;
 }
 
-#download{  
-    padding-left: 70%;
+#icon{
+    margin-left: 10px;
 }
 
 hr{
@@ -68,6 +68,7 @@ label{
 #sub,#res{
     padding: 12px 24px; 
     font-size: 16px;
+    cursor: pointer;
 }
 
 #sub:hover,#res:hover{
