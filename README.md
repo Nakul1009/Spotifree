@@ -23,5 +23,7 @@
 ### Run Spotifree:
 ### python spotifree.py
 
+# Contributing
+### Contributions are welcome! If you find any issues or have ideas for improvements, feel free to open an issue or submit a pull request.
 
 ## Spotifree respects Spotify’s terms of use. Only download songs for personal use and within the allowed limits (e.g., Spotify Premium users can download up to 10,000 songs on a maximum of five devices).
