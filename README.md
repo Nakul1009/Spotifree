@@ -13,17 +13,15 @@
 ### 2. Spotify Account: You’ll need a Spotify account (free or premium) to collect song links.
 
 # Installation
-Clone this repository to your local machine:
-git clone https://github.com/your-username/spotifree.git
+### Clone this repository to your local machine:
+### git clone https://github.com/Nakul1009/Spotifree.git
 
-Install the required Python packages:
-pip install -r requirements.txt
+### Install the required Python packages:
+### pip install -r requirements.txt
 
 # Usage
-Run Spotifree:
-python spotifree.py
+### Run Spotifree:
+### python spotifree.py
 
-Log in to your Spotify account when prompted.
-Follow the on-screen instructions to collect song links and download the songs.
-Notes
-Spotifree respects Spotify’s terms of use. Only download songs for personal use and within the allowed limits (e.g., Spotify Premium users can download up to 10,000 songs on a maximum of five devices).
+
+## Spotifree respects Spotify’s terms of use. Only download songs for personal use and within the allowed limits (e.g., Spotify Premium users can download up to 10,000 songs on a maximum of five devices).
